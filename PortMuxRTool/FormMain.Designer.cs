@@ -69,10 +69,11 @@
             // 
             // groupBoxPorts
             // 
-            this.groupBoxPorts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBoxPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxPorts.Controls.Add(this.flowLayoutPanelBoards);
-            this.groupBoxPorts.Location = new System.Drawing.Point(12, 27);
+            this.groupBoxPorts.Location = new System.Drawing.Point(12, 28);
             this.groupBoxPorts.Name = "groupBoxPorts";
             this.groupBoxPorts.Size = new System.Drawing.Size(949, 669);
             this.groupBoxPorts.TabIndex = 0;
@@ -81,13 +82,14 @@
             // 
             // flowLayoutPanelBoards
             // 
-            this.flowLayoutPanelBoards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.flowLayoutPanelBoards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelBoards.AutoScroll = true;
             this.flowLayoutPanelBoards.Location = new System.Drawing.Point(6, 19);
             this.flowLayoutPanelBoards.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanelBoards.Name = "flowLayoutPanelBoards";
-            this.flowLayoutPanelBoards.Size = new System.Drawing.Size(940, 647);
+            this.flowLayoutPanelBoards.Size = new System.Drawing.Size(940, 644);
             this.flowLayoutPanelBoards.TabIndex = 0;
             // 
             // menuStripMain
@@ -235,7 +237,7 @@
             this.treeViewPorts.ContextMenuStrip = this.contextMenuStripPortTree;
             this.treeViewPorts.Location = new System.Drawing.Point(6, 19);
             this.treeViewPorts.Name = "treeViewPorts";
-            this.treeViewPorts.Size = new System.Drawing.Size(313, 298);
+            this.treeViewPorts.Size = new System.Drawing.Size(314, 298);
             this.treeViewPorts.TabIndex = 2;
             // 
             // contextMenuStripPortTree
@@ -254,11 +256,10 @@
             // 
             // groupBoxLogs
             // 
-            this.groupBoxLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBoxLogs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxLogs.Controls.Add(this.textBoxLogs);
-            this.groupBoxLogs.Location = new System.Drawing.Point(967, 27);
+            this.groupBoxLogs.Location = new System.Drawing.Point(967, 28);
             this.groupBoxLogs.Name = "groupBoxLogs";
             this.groupBoxLogs.Size = new System.Drawing.Size(326, 339);
             this.groupBoxLogs.TabIndex = 3;
@@ -284,12 +285,11 @@
             // 
             // groupBoxPortTree
             // 
-            this.groupBoxPortTree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxPortTree.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxPortTree.Controls.Add(this.treeViewPorts);
-            this.groupBoxPortTree.Location = new System.Drawing.Point(968, 373);
+            this.groupBoxPortTree.Location = new System.Drawing.Point(967, 374);
             this.groupBoxPortTree.Name = "groupBoxPortTree";
-            this.groupBoxPortTree.Size = new System.Drawing.Size(325, 323);
+            this.groupBoxPortTree.Size = new System.Drawing.Size(326, 323);
             this.groupBoxPortTree.TabIndex = 4;
             this.groupBoxPortTree.TabStop = false;
             this.groupBoxPortTree.Text = "Port Tree View";
@@ -322,8 +322,8 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1305, 721);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.groupBoxPortTree);
@@ -332,7 +332,7 @@
             this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMain;
-            this.MinimumSize = new System.Drawing.Size(1130, 760);
+            this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "FormMain";
             this.Text = "SensorDots Port MuxR Tool";
             this.Load += new System.EventHandler(this.FormMain_Load);
