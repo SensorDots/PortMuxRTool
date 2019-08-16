@@ -138,7 +138,7 @@ namespace PortMuxRTool
             if (command == "")
             {
                 setCommandState(portID, false, "Command not set");
-                ((FormMain)this.Parent.Parent.Parent).boardReport("Error executing command. No command set ", boardNumber);
+                ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Error executing command. No command set ", boardNumber);
                 return -1;
             }
 
@@ -174,7 +174,7 @@ namespace PortMuxRTool
             catch (System.ComponentModel.Win32Exception ex) {
                 setCommandState(portID, false, "Command failed");
 
-                ((FormMain)this.Parent.Parent.Parent).boardReport("Error executing command. " + ex.Message + ".\r\n", boardNumber);
+                ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Error executing command. " + ex.Message + ".\r\n", boardNumber);
                 return -1;
 
             }
@@ -338,7 +338,7 @@ namespace PortMuxRTool
                     port.setChained(true);
                 }
             }
-            ((FormMain)this.Parent.Parent.Parent).chainBoard(portNumber, boardNumber);
+            ((FormMain)this.Parent.Parent.Parent.Parent).chainBoard(portNumber, boardNumber);
             switchChainedPorts(1, 0);
             portChanged();
 
@@ -355,11 +355,11 @@ namespace PortMuxRTool
 
             if (portNumber == 0)
             {
-                ((FormMain)this.Parent.Parent.Parent).boardReport(message, boardNumber);
+                ((FormMain)this.Parent.Parent.Parent.Parent).boardReport(message, boardNumber);
             }
             else
             {
-                ((FormMain)this.Parent.Parent.Parent).boardReport("Port " + portNumber.ToString() + " - " + message, boardNumber);
+                ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Port " + portNumber.ToString() + " - " + message, boardNumber);
             }
         }
 
@@ -427,7 +427,7 @@ namespace PortMuxRTool
 
             } catch (Exception)
             {
-                ((FormMain)this.Parent.Parent.Parent).boardReport("Error getting board state", boardNumber);
+                ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Error getting board state", boardNumber);
             }
             
         }
@@ -462,7 +462,7 @@ namespace PortMuxRTool
                 {
                     if (this.Parent != null)
                     {
-                        ((FormMain)this.Parent.Parent.Parent).boardReport("Could not connect to serial port!", boardNumber);
+                        ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Could not connect to serial port!", boardNumber);
                     }
                     return 1;
                 }
@@ -470,7 +470,7 @@ namespace PortMuxRTool
                 {
                     if (this.Parent != null)
                     {
-                        ((FormMain)this.Parent.Parent.Parent).boardReport("Access denied to serial port!", boardNumber);
+                        ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Access denied to serial port!", boardNumber);
                     }
                     return 1;
                 }
@@ -486,7 +486,7 @@ namespace PortMuxRTool
                 {
                     if (this.Parent != null)
                     {
-                        ((FormMain)this.Parent.Parent.Parent).boardReport("Error communicating with serial port!", boardNumber);
+                        ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Error communicating with serial port!", boardNumber);
                     }
                     return 2;
                 }
@@ -495,7 +495,7 @@ namespace PortMuxRTool
                 {
                     if (this.Parent != null)
                     {
-                        ((FormMain)this.Parent.Parent.Parent).boardReport("Serial port timeout!", boardNumber);
+                        ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Serial port timeout!", boardNumber);
                     }
 
                     serialPort.Close();
@@ -506,14 +506,14 @@ namespace PortMuxRTool
                 {
                     if (this.Parent != null)
                     {
-                        ((FormMain)this.Parent.Parent.Parent).boardReport("Error occured!", boardNumber);
+                        ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Error occured!", boardNumber);
                     }
                     return 2;
                 }
             }
             else
             {
-                ((Board)this.Parent.Parent.Parent).portReport("Error occured!", boardNumber);
+                ((Board)this.Parent.Parent.Parent.Parent).portReport("Error occured!", boardNumber);
 
                 return 2;
             }
@@ -543,7 +543,7 @@ namespace PortMuxRTool
                 {
                     if (this.Parent != null)
                     {
-                        ((FormMain)this.Parent.Parent.Parent).boardReport("Could not connect to serial port!", boardNumber);
+                        ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Could not connect to serial port!", boardNumber);
                     }
                     return 1;
                 }
@@ -551,7 +551,7 @@ namespace PortMuxRTool
                 {
                     if (this.Parent != null)
                     {
-                        ((FormMain)this.Parent.Parent.Parent).boardReport("Access denied to serial port!", boardNumber);
+                        ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Access denied to serial port!", boardNumber);
                     }
                     return 1;
                 }
@@ -569,7 +569,7 @@ namespace PortMuxRTool
                 {
                     if (this.Parent != null)
                     {
-                        ((FormMain)this.Parent.Parent.Parent).boardReport("Error communicating with serial port!", boardNumber);
+                        ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Error communicating with serial port!", boardNumber);
                     }
                     return 2;
                 }
@@ -578,7 +578,7 @@ namespace PortMuxRTool
                 {
                     if (this.Parent != null)
                     {
-                        ((FormMain)this.Parent.Parent.Parent).boardReport("Serial port timeout!", boardNumber);
+                        ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Serial port timeout!", boardNumber);
                     }
 
                     serialPort.Close();
@@ -589,7 +589,7 @@ namespace PortMuxRTool
                 {
                     if (this.Parent != null)
                     {
-                        ((FormMain)this.Parent.Parent.Parent).boardReport("Error occured!", boardNumber);
+                        ((FormMain)this.Parent.Parent.Parent.Parent).boardReport("Error occured!", boardNumber);
                     }
 
                     return 2;
@@ -597,7 +597,7 @@ namespace PortMuxRTool
             }
             else
             {
-                ((Board)this.Parent.Parent.Parent).portReport("Error occured!", boardNumber);
+                ((Board)this.Parent.Parent.Parent.Parent).portReport("Error occured!", boardNumber);
 
                 return 2;
             }
