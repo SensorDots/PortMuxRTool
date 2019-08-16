@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.groupBoxPorts = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanelBoards = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNonChainBoardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,48 +47,29 @@
             this.resetCommandStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.treeViewPorts = new System.Windows.Forms.TreeView();
             this.contextMenuStripPortTree = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBoxLogs = new System.Windows.Forms.GroupBox();
-            this.textBoxLogs = new System.Windows.Forms.TextBox();
-            this.groupBoxPortTree = new System.Windows.Forms.GroupBox();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBarStatus = new System.Windows.Forms.ToolStripProgressBar();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.groupBoxPorts.SuspendLayout();
+            this.groupBoxPorts = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanelBoards = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBoxLogs = new System.Windows.Forms.GroupBox();
+            this.textBoxLogs = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.treeViewPorts = new System.Windows.Forms.TreeView();
+            this.groupBoxPortTree = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanelRight = new System.Windows.Forms.TableLayoutPanel();
             this.menuStripMain.SuspendLayout();
             this.contextMenuStripPortTree.SuspendLayout();
-            this.groupBoxLogs.SuspendLayout();
-            this.groupBoxPortTree.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            this.groupBoxPorts.SuspendLayout();
+            this.groupBoxLogs.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
+            this.groupBoxPortTree.SuspendLayout();
+            this.tableLayoutPanelRight.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBoxPorts
-            // 
-            this.groupBoxPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxPorts.Controls.Add(this.flowLayoutPanelBoards);
-            this.groupBoxPorts.Location = new System.Drawing.Point(12, 28);
-            this.groupBoxPorts.Name = "groupBoxPorts";
-            this.groupBoxPorts.Size = new System.Drawing.Size(949, 669);
-            this.groupBoxPorts.TabIndex = 0;
-            this.groupBoxPorts.TabStop = false;
-            this.groupBoxPorts.Text = "Ports";
-            // 
-            // flowLayoutPanelBoards
-            // 
-            this.flowLayoutPanelBoards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelBoards.AutoScroll = true;
-            this.flowLayoutPanelBoards.Location = new System.Drawing.Point(6, 19);
-            this.flowLayoutPanelBoards.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanelBoards.Name = "flowLayoutPanelBoards";
-            this.flowLayoutPanelBoards.Size = new System.Drawing.Size(940, 644);
-            this.flowLayoutPanelBoards.TabIndex = 0;
             // 
             // menuStripMain
             // 
@@ -101,7 +80,7 @@
             this.helpToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1305, 24);
+            this.menuStripMain.Size = new System.Drawing.Size(1244, 24);
             this.menuStripMain.TabIndex = 1;
             this.menuStripMain.Text = "Main Menu";
             // 
@@ -229,17 +208,6 @@
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // treeViewPorts
-            // 
-            this.treeViewPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeViewPorts.ContextMenuStrip = this.contextMenuStripPortTree;
-            this.treeViewPorts.Location = new System.Drawing.Point(6, 19);
-            this.treeViewPorts.Name = "treeViewPorts";
-            this.treeViewPorts.Size = new System.Drawing.Size(314, 298);
-            this.treeViewPorts.TabIndex = 2;
-            // 
             // contextMenuStripPortTree
             // 
             this.contextMenuStripPortTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -254,53 +222,13 @@
             this.copyXMLToolStripMenuItem.Text = "&Copy XML";
             this.copyXMLToolStripMenuItem.Click += new System.EventHandler(this.copyXMLToolStripMenuItem_Click);
             // 
-            // groupBoxLogs
-            // 
-            this.groupBoxLogs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxLogs.Controls.Add(this.textBoxLogs);
-            this.groupBoxLogs.Location = new System.Drawing.Point(967, 28);
-            this.groupBoxLogs.Name = "groupBoxLogs";
-            this.groupBoxLogs.Size = new System.Drawing.Size(326, 339);
-            this.groupBoxLogs.TabIndex = 3;
-            this.groupBoxLogs.TabStop = false;
-            this.groupBoxLogs.Text = "Logs";
-            // 
-            // textBoxLogs
-            // 
-            this.textBoxLogs.AcceptsReturn = true;
-            this.textBoxLogs.AcceptsTab = true;
-            this.textBoxLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLogs.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLogs.Location = new System.Drawing.Point(6, 19);
-            this.textBoxLogs.MaxLength = 10000;
-            this.textBoxLogs.Multiline = true;
-            this.textBoxLogs.Name = "textBoxLogs";
-            this.textBoxLogs.ReadOnly = true;
-            this.textBoxLogs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLogs.Size = new System.Drawing.Size(314, 314);
-            this.textBoxLogs.TabIndex = 1;
-            // 
-            // groupBoxPortTree
-            // 
-            this.groupBoxPortTree.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxPortTree.Controls.Add(this.treeViewPorts);
-            this.groupBoxPortTree.Location = new System.Drawing.Point(967, 374);
-            this.groupBoxPortTree.Name = "groupBoxPortTree";
-            this.groupBoxPortTree.Size = new System.Drawing.Size(326, 323);
-            this.groupBoxPortTree.TabIndex = 4;
-            this.groupBoxPortTree.TabStop = false;
-            this.groupBoxPortTree.Text = "Port Tree View";
-            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBarStatus});
             this.statusStrip.Location = new System.Drawing.Point(0, 699);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1305, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1244, 22);
             this.statusStrip.TabIndex = 5;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -320,15 +248,128 @@
             this.openFileDialog.FileName = "boards.mux";
             this.openFileDialog.Filter = "Port MuxR files|*.mux";
             // 
+            // groupBoxPorts
+            // 
+            this.groupBoxPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxPorts.Controls.Add(this.flowLayoutPanelBoards);
+            this.groupBoxPorts.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxPorts.Name = "groupBoxPorts";
+            this.groupBoxPorts.Size = new System.Drawing.Size(927, 663);
+            this.groupBoxPorts.TabIndex = 0;
+            this.groupBoxPorts.TabStop = false;
+            this.groupBoxPorts.Text = "Ports";
+            // 
+            // flowLayoutPanelBoards
+            // 
+            this.flowLayoutPanelBoards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanelBoards.AutoScroll = true;
+            this.flowLayoutPanelBoards.Location = new System.Drawing.Point(6, 19);
+            this.flowLayoutPanelBoards.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanelBoards.Name = "flowLayoutPanelBoards";
+            this.flowLayoutPanelBoards.Size = new System.Drawing.Size(918, 638);
+            this.flowLayoutPanelBoards.TabIndex = 0;
+            // 
+            // groupBoxLogs
+            // 
+            this.groupBoxLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxLogs.Controls.Add(this.textBoxLogs);
+            this.groupBoxLogs.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxLogs.Name = "groupBoxLogs";
+            this.groupBoxLogs.Size = new System.Drawing.Size(305, 328);
+            this.groupBoxLogs.TabIndex = 3;
+            this.groupBoxLogs.TabStop = false;
+            this.groupBoxLogs.Text = "Logs";
+            // 
+            // textBoxLogs
+            // 
+            this.textBoxLogs.AcceptsReturn = true;
+            this.textBoxLogs.AcceptsTab = true;
+            this.textBoxLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxLogs.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLogs.Location = new System.Drawing.Point(6, 19);
+            this.textBoxLogs.MaxLength = 10000;
+            this.textBoxLogs.Multiline = true;
+            this.textBoxLogs.Name = "textBoxLogs";
+            this.textBoxLogs.ReadOnly = true;
+            this.textBoxLogs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxLogs.Size = new System.Drawing.Size(293, 303);
+            this.textBoxLogs.TabIndex = 1;
+            // 
+            // tableLayoutPanel
+            // 
+            this.tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel.ColumnCount = 2;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel.Controls.Add(this.groupBoxPorts, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.tableLayoutPanelRight, 1, 0);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 27);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 1;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(1244, 669);
+            this.tableLayoutPanel.TabIndex = 6;
+            // 
+            // treeViewPorts
+            // 
+            this.treeViewPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeViewPorts.ContextMenuStrip = this.contextMenuStripPortTree;
+            this.treeViewPorts.Location = new System.Drawing.Point(6, 19);
+            this.treeViewPorts.Name = "treeViewPorts";
+            this.treeViewPorts.Size = new System.Drawing.Size(293, 304);
+            this.treeViewPorts.TabIndex = 2;
+            // 
+            // groupBoxPortTree
+            // 
+            this.groupBoxPortTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxPortTree.Controls.Add(this.treeViewPorts);
+            this.groupBoxPortTree.Location = new System.Drawing.Point(3, 337);
+            this.groupBoxPortTree.Name = "groupBoxPortTree";
+            this.groupBoxPortTree.Size = new System.Drawing.Size(305, 329);
+            this.groupBoxPortTree.TabIndex = 4;
+            this.groupBoxPortTree.TabStop = false;
+            this.groupBoxPortTree.Text = "Port Tree View";
+            // 
+            // tableLayoutPanelRight
+            // 
+            this.tableLayoutPanelRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelRight.ColumnCount = 1;
+            this.tableLayoutPanelRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelRight.Controls.Add(this.groupBoxLogs, 0, 0);
+            this.tableLayoutPanelRight.Controls.Add(this.groupBoxPortTree, 0, 1);
+            this.tableLayoutPanelRight.Location = new System.Drawing.Point(933, 0);
+            this.tableLayoutPanelRight.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanelRight.Name = "tableLayoutPanelRight";
+            this.tableLayoutPanelRight.RowCount = 2;
+            this.tableLayoutPanelRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelRight.Size = new System.Drawing.Size(311, 669);
+            this.tableLayoutPanelRight.TabIndex = 5;
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1305, 721);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1244, 721);
+            this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.groupBoxPortTree);
-            this.Controls.Add(this.groupBoxLogs);
-            this.Controls.Add(this.groupBoxPorts);
             this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMain;
@@ -336,37 +377,32 @@
             this.Name = "FormMain";
             this.Text = "SensorDots Port MuxR Tool";
             this.Load += new System.EventHandler(this.FormMain_Load);
-            this.groupBoxPorts.ResumeLayout(false);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.contextMenuStripPortTree.ResumeLayout(false);
-            this.groupBoxLogs.ResumeLayout(false);
-            this.groupBoxLogs.PerformLayout();
-            this.groupBoxPortTree.ResumeLayout(false);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.groupBoxPorts.ResumeLayout(false);
+            this.groupBoxLogs.ResumeLayout(false);
+            this.groupBoxLogs.PerformLayout();
+            this.tableLayoutPanel.ResumeLayout(false);
+            this.groupBoxPortTree.ResumeLayout(false);
+            this.tableLayoutPanelRight.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBoxPorts;
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem controlsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setAllCombinedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setAllDualToolStripMenuItem;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelBoards;
         private System.Windows.Forms.ToolStripMenuItem addNonChainBoardToolStripMenuItem;
-        private System.Windows.Forms.TreeView treeViewPorts;
-        private System.Windows.Forms.GroupBox groupBoxLogs;
-        private System.Windows.Forms.GroupBox groupBoxPortTree;
         private System.Windows.Forms.ToolStripMenuItem allVccOnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allVccOffToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBoxLogs;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
@@ -381,5 +417,13 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripPortTree;
         private System.Windows.Forms.ToolStripMenuItem copyXMLToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBoxPorts;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelBoards;
+        private System.Windows.Forms.GroupBox groupBoxLogs;
+        private System.Windows.Forms.TextBox textBoxLogs;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        private System.Windows.Forms.GroupBox groupBoxPortTree;
+        private System.Windows.Forms.TreeView treeViewPorts;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelRight;
     }
 }
