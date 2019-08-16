@@ -8,11 +8,11 @@ Requires .NET 4.0
 
 ## Mono Instructions
 
-Runs out of the box with mono (you might need to run as sudo or change ownership of the serial port):
+The compiled exe (in the [Release](https://github.com/SensorDots/PortMuxRTool/tree/master/PortMuxRTool/bin/Release) directory) runs out of the box with mono (you might need to run as sudo or change ownership of the serial port):
 
 mono PortMuxRTool.exe
 
-If compiling with the latest version of mono, you might need to run the following:
+Alternatively you can compile from source (just run xbuild in the same directory as the PortMuxRTool.sln file). If compiling with the latest version of mono, you might need to run the following:
 
 xbuild /p:TargetFrameworkVersion="v4.5"
 
