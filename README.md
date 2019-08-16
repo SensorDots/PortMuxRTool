@@ -18,7 +18,7 @@ xbuild /p:TargetFrameworkVersion="v4.5"
 
 As the 4.0 target doesn't get installed.
 
-You may need to run as sudo or give rw access to the serial port (sudo chmod 777 /dev/ttyUSB0).
+You may need to run as sudo or give rw access to the serial port (sudo chmod 666 /dev/ttyUSB0).
 
 When running under mono, it shows all serial ports (rather than just ones found active). You might need to "arrow down" to reach the last item on the dropdown list, as the scrollbar doesn't move all the way to the bottom of the list under mono.
 
