@@ -180,7 +180,7 @@ namespace PortMuxRTool
 
                     return 2;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     ((Board)this.Parent.Parent.Parent).portReport("Error occured!", portNumber);
 

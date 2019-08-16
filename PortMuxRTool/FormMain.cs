@@ -459,7 +459,7 @@ namespace PortMuxRTool
                             nextBoard = readtext.ReadLine();
                         }
                     }
-                } catch (Exception ex)
+                } catch (Exception)
                 {
                     textBoxLogs.AppendText("Error parsing save file.\r\n");
                     flowLayoutPanelBoards.Controls.Clear();
