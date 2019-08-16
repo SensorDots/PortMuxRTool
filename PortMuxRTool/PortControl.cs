@@ -137,44 +137,56 @@ namespace PortMuxRTool
         /// <returns>command state (1 for error connect error, 2 for serial error, 0 for success)</returns>
         private int writeSerialCommand(String command)
         {
-            try
+            if (serialPort != null)
             {
-                serialPort.Open();
-            }
-            catch (System.IO.IOException)
-            {
-                ((Board)this.Parent.Parent.Parent).portReport("Could not connect to serial port!", portNumber);
-                return 1;
-            }
-            catch (System.UnauthorizedAccessException)
-            {
-                ((Board)this.Parent.Parent.Parent).portReport("Access denied to serial port!", portNumber);
-                return 1;
-            }
+                try
+                {
 
-            try
-            {
-                serialPort.Write(command);
-                Thread.Sleep(50);
-                serialPort.ReadExisting();
-                serialPort.Close();
-            }
-            catch (System.IO.IOException)
+                    if (serialPort.IsOpen)
+                        serialPort.Close();
 
-            {
-                ((Board)this.Parent.Parent.Parent).portReport("Error communicating with serial port!", portNumber);
-                return 2;
-            }
+                    serialPort.Open();
+                }
+                catch (System.IO.IOException)
+                {
+                    ((Board)this.Parent.Parent.Parent).portReport("Could not connect to serial port!", portNumber);
+                    return 1;
+                }
+                catch (System.UnauthorizedAccessException)
+                {
+                    ((Board)this.Parent.Parent.Parent).portReport("Access denied to serial port!", portNumber);
+                    return 1;
+                }
 
-            catch (System.TimeoutException)
-            {
-                ((Board)this.Parent.Parent.Parent).portReport("Serial port timeout!", portNumber);
+                try
+                {
+                    serialPort.Write(command);
+                    Thread.Sleep(50);
+                    serialPort.ReadExisting();
+                    serialPort.Close();
+                }
+                catch (System.IO.IOException)
 
-                serialPort.Close();
+                {
+                    ((Board)this.Parent.Parent.Parent).portReport("Error communicating with serial port!", portNumber);
+                    return 2;
+                }
 
-                return 2;
-            }
-            catch (Exception ex)
+                catch (System.TimeoutException)
+                {
+                    ((Board)this.Parent.Parent.Parent).portReport("Serial port timeout!", portNumber);
+
+                    serialPort.Close();
+
+                    return 2;
+                }
+                catch (Exception ex)
+                {
+                    ((Board)this.Parent.Parent.Parent).portReport("Error occured!", portNumber);
+
+                    return 2;
+                }
+            } else
             {
                 ((Board)this.Parent.Parent.Parent).portReport("Error occured!", portNumber);
 

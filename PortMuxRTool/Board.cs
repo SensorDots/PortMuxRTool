@@ -448,63 +448,77 @@ namespace PortMuxRTool
         /// <returns>command state (1 for error connect error, 2 for serial error, 0 for success)</returns>
         private int writeSerialCommand(String command)
         {
-            try
+            if (serialPort != null)
             {
-                serialPort.Open();
-            }
-            catch (System.IO.IOException)
-            {
-                if (this.Parent != null)
+                try
                 {
-                    ((FormMain)this.Parent.Parent.Parent).boardReport("Could not connect to serial port!", boardNumber);
-                }
-                return 1;
-            }
-            catch (System.UnauthorizedAccessException)
-            {
-                if (this.Parent != null)
-                {
-                    ((FormMain)this.Parent.Parent.Parent).boardReport("Access denied to serial port!", boardNumber);
-                }
-                return 1;
-            }
 
-            try
-            {
-                serialPort.Write(command);
-                serialPort.ReadExisting();
-                serialPort.Close();
-            }
-            catch (System.IO.IOException)
+                    if (serialPort.IsOpen)
+                        serialPort.Close();
 
-            {
-                if (this.Parent != null)
-                {
-                    ((FormMain)this.Parent.Parent.Parent).boardReport("Error communicating with serial port!", boardNumber);
+                    serialPort.Open();
                 }
-                return 2;
-            }
-
-            catch (System.TimeoutException)
-            {
-                if (this.Parent != null)
+                catch (System.IO.IOException)
                 {
-                    ((FormMain)this.Parent.Parent.Parent).boardReport("Serial port timeout!", boardNumber);
+                    if (this.Parent != null)
+                    {
+                        ((FormMain)this.Parent.Parent.Parent).boardReport("Could not connect to serial port!", boardNumber);
+                    }
+                    return 1;
+                }
+                catch (System.UnauthorizedAccessException)
+                {
+                    if (this.Parent != null)
+                    {
+                        ((FormMain)this.Parent.Parent.Parent).boardReport("Access denied to serial port!", boardNumber);
+                    }
+                    return 1;
                 }
 
-                serialPort.Close();
-
-                return 2;
-            }
-            catch (Exception ex)
-            {
-                if (this.Parent != null)
+                try
                 {
-                    ((FormMain)this.Parent.Parent.Parent).boardReport("Error occured!", boardNumber);
+                    serialPort.Write(command);
+                    serialPort.ReadExisting();
+                    serialPort.Close();
                 }
+                catch (System.IO.IOException)
+
+                {
+                    if (this.Parent != null)
+                    {
+                        ((FormMain)this.Parent.Parent.Parent).boardReport("Error communicating with serial port!", boardNumber);
+                    }
+                    return 2;
+                }
+
+                catch (System.TimeoutException)
+                {
+                    if (this.Parent != null)
+                    {
+                        ((FormMain)this.Parent.Parent.Parent).boardReport("Serial port timeout!", boardNumber);
+                    }
+
+                    serialPort.Close();
+
+                    return 2;
+                }
+                catch (Exception ex)
+                {
+                    if (this.Parent != null)
+                    {
+                        ((FormMain)this.Parent.Parent.Parent).boardReport("Error occured!", boardNumber);
+                    }
+                    return 2;
+                }
+            }
+            else
+            {
+                ((Board)this.Parent.Parent.Parent).portReport("Error occured!", boardNumber);
+
                 return 2;
             }
             return 0;
+
         }
 
         /// <summary>
@@ -515,62 +529,75 @@ namespace PortMuxRTool
         /// <returns>command state (1 for error connect error, 2 for serial error, 0 for success)</returns>
         private int readSerialCommand(String command, ref String returnString)
         {
-            try
+            if (serialPort != null)
             {
-                serialPort.Open();
-            }
-            catch (System.IO.IOException)
-            {
-                if (this.Parent != null)
+                try
                 {
-                    ((FormMain)this.Parent.Parent.Parent).boardReport("Could not connect to serial port!", boardNumber);
-                }
-                return 1;
-            }
-            catch (System.UnauthorizedAccessException)
-            {
-                if (this.Parent != null)
-                {
-                    ((FormMain)this.Parent.Parent.Parent).boardReport("Access denied to serial port!", boardNumber);
-                }
-                return 1;
-            }
 
-            try
-            {
-                returnString = serialPort.ReadExisting();
-                serialPort.Write(command);
-                Thread.Sleep(200);
-                returnString = serialPort.ReadExisting().Trim();
-                serialPort.Close();
-            }
-            catch (System.IO.IOException)
+                    if (serialPort.IsOpen)
+                        serialPort.Close();
 
-            {
-                if (this.Parent != null)
-                {
-                    ((FormMain)this.Parent.Parent.Parent).boardReport("Error communicating with serial port!", boardNumber);
+                    serialPort.Open();
                 }
-                return 2;
-            }
-
-            catch (System.TimeoutException)
-            {
-                if (this.Parent != null)
+                catch (System.IO.IOException)
                 {
-                    ((FormMain)this.Parent.Parent.Parent).boardReport("Serial port timeout!", boardNumber);
+                    if (this.Parent != null)
+                    {
+                        ((FormMain)this.Parent.Parent.Parent).boardReport("Could not connect to serial port!", boardNumber);
+                    }
+                    return 1;
+                }
+                catch (System.UnauthorizedAccessException)
+                {
+                    if (this.Parent != null)
+                    {
+                        ((FormMain)this.Parent.Parent.Parent).boardReport("Access denied to serial port!", boardNumber);
+                    }
+                    return 1;
                 }
 
-                serialPort.Close();
-
-                return 2;
-            }
-            catch (Exception ex)
-            {
-                if (this.Parent != null)
+                try
                 {
-                    ((FormMain)this.Parent.Parent.Parent).boardReport("Error occured!", boardNumber);
+                    returnString = serialPort.ReadExisting();
+                    serialPort.Write(command);
+                    Thread.Sleep(200);
+                    returnString = serialPort.ReadExisting().Trim();
+                    serialPort.Close();
                 }
+                catch (System.IO.IOException)
+
+                {
+                    if (this.Parent != null)
+                    {
+                        ((FormMain)this.Parent.Parent.Parent).boardReport("Error communicating with serial port!", boardNumber);
+                    }
+                    return 2;
+                }
+
+                catch (System.TimeoutException)
+                {
+                    if (this.Parent != null)
+                    {
+                        ((FormMain)this.Parent.Parent.Parent).boardReport("Serial port timeout!", boardNumber);
+                    }
+
+                    serialPort.Close();
+
+                    return 2;
+                }
+                catch (Exception ex)
+                {
+                    if (this.Parent != null)
+                    {
+                        ((FormMain)this.Parent.Parent.Parent).boardReport("Error occured!", boardNumber);
+                    }
+
+                    return 2;
+                }
+            }
+            else
+            {
+                ((Board)this.Parent.Parent.Parent).portReport("Error occured!", boardNumber);
 
                 return 2;
             }
@@ -588,7 +615,7 @@ namespace PortMuxRTool
             serialPort.Parity = Parity.None;
             serialPort.StopBits = StopBits.One;
             serialPort.DataBits = 8;
-            serialPort.BaudRate = 56700;
+            serialPort.BaudRate = 57600;
             serialPort.RtsEnable = false;
             serialPort.DtrEnable = false;
             serialPort.ReadTimeout = 1000;
