@@ -162,7 +162,7 @@ namespace PortMuxRTool
                 {
                     serialPort.Write(command);
                     Thread.Sleep(50);
-                    serialPort.ReadExisting();
+                    if (serialPort.BytesToRead > 0) serialPort.ReadExisting();
                     serialPort.Close();
                 }
                 catch (System.IO.IOException)

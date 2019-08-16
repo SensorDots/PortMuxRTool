@@ -425,7 +425,7 @@ namespace PortMuxRTool
                     portBState[i] = int.Parse(state.Split(' ')[0].Split(',')[i]);
                 }
 
-            } catch (Exception ex)
+            } catch (Exception)
             {
                 ((FormMain)this.Parent.Parent.Parent).boardReport("Error getting board state", boardNumber);
             }
@@ -478,7 +478,7 @@ namespace PortMuxRTool
                 try
                 {
                     serialPort.Write(command);
-                    serialPort.ReadExisting();
+                    if (serialPort.BytesToRead > 0) serialPort.ReadExisting();
                     serialPort.Close();
                 }
                 catch (System.IO.IOException)
@@ -502,7 +502,7 @@ namespace PortMuxRTool
 
                     return 2;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     if (this.Parent != null)
                     {
@@ -558,10 +558,10 @@ namespace PortMuxRTool
 
                 try
                 {
-                    returnString = serialPort.ReadExisting();
+                    if (serialPort.BytesToRead > 0) returnString = serialPort.ReadExisting();
                     serialPort.Write(command);
                     Thread.Sleep(200);
-                    returnString = serialPort.ReadExisting().Trim();
+                    if (serialPort.BytesToRead > 0) returnString = serialPort.ReadExisting().Trim();
                     serialPort.Close();
                 }
                 catch (System.IO.IOException)
@@ -585,7 +585,7 @@ namespace PortMuxRTool
 
                     return 2;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     if (this.Parent != null)
                     {
@@ -658,7 +658,7 @@ namespace PortMuxRTool
                 }
                 if (status.Count >= 1) labelStatus.Text = (String)status[0];
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
 
         /// <summary>
@@ -674,7 +674,7 @@ namespace PortMuxRTool
                 if (status.Count >= 1) labelStatus.Text = (String)status[0];
                 else labelStatus.Text = "";
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
 
         /// <summary>
