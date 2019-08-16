@@ -8,7 +8,17 @@ Requires .NET 4.0
 
 ## Mono Instructions
 
-Runs out of the box with mono.
+Runs out of the box with mono (you might need to run as sudo or change ownership of the serial port):
+
+mono PortMuxRTool.exe
+
+If compiling with the latest version of mono, you might need to run the following:
+
+xbuild /p:TargetFrameworkVersion="v4.5"
+
+As the 4.0 target doesn't get installed.
+
+When running under mono, it shows all serial ports (rather than just ones found active). You might need to scroll down to reach the last item on the dropdown list.
 
 ## Versions
 
