@@ -36,10 +36,10 @@ An alternative (and quicker) build method is to get the (currently installed) ke
 ```
 sudo apt install linux-source-`uname -r | cut -d'-' -f1`
 ```
-Then extract it out (it should be located in /usr/src), then run the following (you will need sudo apt install build-dep libncurses-dev flex bison):
+Then extract it out (it should be located in /usr/src), then run the following (you will need sudo apt install build-dep libncurses-dev flex bison) in the source directory where you extracted it:
 
 ```
-make menuconfig
+cp /boot/config-`uname -r` .config
 ```
 Then save and exit. Then run (after editing the usb-serial.c file):
 ```
