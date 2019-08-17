@@ -37,7 +37,8 @@ In Ubuntu, there is some information on compiling the kernel here - https://wiki
 ### Alternative USBSerial Kernel Module Re-Build
 An alternative (and much much quicker) build method is to get the (currently installed) kernel sources:
 ```
-sudo apt install linux-source-`uname -r | cut -d'-' -f1`
+sudo apt install linux-source-`uname -r | cut -d'-' -f1` 
+sudo apt install linux-image-$(uname -r)
 ```
 Then extract it out (it should be located in /usr/src), then run the following (you will need sudo apt install build-dep libncurses-dev flex bison) in the source directory where you extracted it:
 
