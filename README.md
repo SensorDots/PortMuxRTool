@@ -24,6 +24,8 @@ ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0666"
 ```
 When running under mono, it shows all serial ports (rather than just ones found active). You might need to "arrow down" to reach the last item on the dropdown list, as the scrollbar doesn't move all the way to the bottom of the list under mono.
 
+### Error Getting Board State
+
 If you get an "Error getting board state" message, this is because the DTR pin is being toggled on port open, which resets the board. Some Linux distributions allow you to disable this with the "stty -F /dev/ttyUSB0 -hupcl -clocal" command. However, if this doesn't work, you can cut the trace between the DTR pins. You will need to resolder these pins together when you want to update the firmware (or hit the reset button during the Arduino programming process).
 
 The alternative to this requires a modification to the usb-serial Linux kernel module. The quick and short of it is to remove [this line](https://github.com/torvalds/linux/blob/master/drivers/usb/serial/usb-serial.c#L712) and recompile the kernel:
@@ -32,6 +34,7 @@ The alternative to this requires a modification to the usb-serial Linux kernel m
 ```
 In Ubuntu, there is some information on compiling the kernel here - https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel (if you get an error about putting source URIs in your sources list, see here - https://askubuntu.com/questions/496549/error-you-must-put-some-source-uris-in-your-sources-list, you also might need to install gawk and libudev-dev). When obtaining the sources make sure you get the correct release codename for your installation.
 
+### Alternative Kernel Module Build
 An alternative (and quicker) build method is to get the (currently installed) kernel sources:
 ```
 sudo apt install linux-source-`uname -r | cut -d'-' -f1`
@@ -55,3 +58,5 @@ sudo rmmod cp210x
 sudo rmmod usbserial
 ```
 Now reconnect the PortMuxR and you should be ready to go.
+
+If you get an error such as " usbserial: version magic '5.0.18 SMP mod_unload ' should be '5.0.0-25-generic SMP mod_unload '" (from dmesg), edit the include/generated/utsrelease.h file with the "should be" string and recompile (provided they are very close kernel numbers this should be safe).
