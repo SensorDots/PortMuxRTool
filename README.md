@@ -59,4 +59,7 @@ sudo rmmod usbserial
 ```
 Now reconnect the PortMuxR and you should be ready to go.
 
-If you get an error such as " usbserial: version magic '5.0.18 SMP mod_unload ' should be '5.0.0-25-generic SMP mod_unload '" (from dmesg), edit the include/generated/utsrelease.h file with the "should be" string and recompile (provided they are very close kernel numbers this should be safe).
+If you get an error such as " usbserial: version magic '5.0.18 SMP mod_unload ' should be '5.0.0-25-generic SMP mod_unload '" (from dmesg), edit the include/generated/utsrelease.h file with the "should be" string and recompile (provided they are very close kernel numbers this should be safe):
+```
+#define UTS_RELEASE "5.0.0-25-generic"
+```
