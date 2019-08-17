@@ -32,3 +32,22 @@ The alternative to this requires a modification to the usb-serial Linux kernel m
 ```
 In Ubuntu, there is some information on compiling the kernel here - https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel (if you get an error about putting source URIs in your sources list, see here - https://askubuntu.com/questions/496549/error-you-must-put-some-source-uris-in-your-sources-list, you also might need to install gawk and libudev-dev). When obtaining the sources make sure you get the correct release codename for your installation.
 
+An alternative (and quicker) build method is to get the kernel sources (apt install kernel-source), extract it out (it should be located in /usr/src), then run the following:
+
+```
+make menuconfig
+```
+Then save and exit. Then run:
+```
+make drivers/usb/serial/usbserial.ko
+```
+Now just copy the usbserial.ko to:
+```
+/lib/modules/`uname -r`/kernel/drivers/usb/serial/
+```
+Then unplug the PortMuxR and run:
+```
+sudo rmmod cp210x
+sudo rmmod usbserial
+```
+Now reconnect the PortMuxR and you should be ready to go.
