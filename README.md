@@ -26,7 +26,7 @@ When running under mono, it shows all serial ports (rather than just ones found 
 
 If you get an "Error getting board state" message, this is because the DTR pin is being toggled on port open, which resets the board. Some Linux distributions allow you to disable this with the "stty -F /dev/ttyUSB0 -hupcl -clocal" command. However, if this doesn't work, you can cut the trace between the DTR pins. You will need to resolder these pins together when you want to update the firmware (or hit the reset button during the Arduino programming process).
 
-The alternative to this requires a modification to the cdc-acm module. The quick and short of it is to remove [this line](https://github.com/torvalds/linux/blob/master/drivers/usb/class/cdc-acm.c#L1066) and recompile that module.
+The alternative to this requires a modification to the usb-serial module. The quick and short of it is to remove [this line](https://github.com/torvalds/linux/blob/master/drivers/usb/serial/usb-serial.c#L712) and recompile that module.
 
 In Ubuntu, there is some information on doing this here - https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel (if you get an error about putting source URIs in your sources list, see here - https://askubuntu.com/questions/496549/error-you-must-put-some-source-uris-in-your-sources-list). Use the git method, as it downloads all sources correctly. Once you get to the "Modifying the configuration" stop, change to the sources directory then run:
 
@@ -34,6 +34,6 @@ make menuconfig
 
 Then save and exit. Then run:
 
-make drivers/usb/class/cdc-acm.ko
+make drivers/usb/serial/usb-serial.ko
 
-Now just copy the cdc-acm.ko to /lib/modules/`uname -r`/kernel/drivers/usb/class
+Now just copy the usb-serial.ko to /lib/modules/`uname -r`/kernel/drivers/usb/serial/
