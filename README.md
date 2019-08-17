@@ -14,12 +14,10 @@ The compiled exe (in the [Release](https://github.com/SensorDots/PortMuxRTool/tr
 ```
 mono PortMuxRTool.exe
 ```
-Alternatively you can compile from source (just run xbuild in the same directory as the PortMuxRTool.sln file). If compiling with the latest version of mono, you might need to run the following:
+Alternatively you can compile from source (just run xbuild in the same directory as the PortMuxRTool.sln file). If compiling with the latest version of mono, you might need to run the following, as the 4.0 target doesn't get installed:
 ```
 xbuild /p:TargetFrameworkVersion="v4.5"
 ```
-As the 4.0 target doesn't get installed.
-
 You may need to run as sudo or give rw access to the serial port (sudo chmod 666 /dev/ttyUSB0 or setup some udev rules to do this). To create some udev rules, make a new file in /etc/udev/rules.d/50-portmuxr.rules and place the following inside:
 ```
 ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE="0666"
