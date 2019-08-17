@@ -26,7 +26,9 @@ When running under mono, it shows all serial ports (rather than just ones found 
 
 If you get an "Error getting board state" message, this is because the DTR pin is being toggled on port open, which resets the board. Some Linux distributions allow you to disable this with the "stty -F /dev/ttyUSB0 -hupcl -clocal" command. However, if this doesn't work, you can cut the trace between the DTR pins. You will need to resolder these pins together when you want to update the firmware (or hit the reset button during the Arduino programming process).
 
-The alternative to this requires a modification to the usb-serial Linux kernel module. The quick and short of it is to remove [this line](https://github.com/torvalds/linux/blob/master/drivers/usb/serial/usb-serial.c#L712; 	.dtr_rts		= serial_port_dtr_rts,) and recompile the kernel.
-
-In Ubuntu, there is some information on compiling the kernel here - https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel (if you get an error about putting source URIs in your sources list, see here - https://askubuntu.com/questions/496549/error-you-must-put-some-source-uris-in-your-sources-list, you also need to install gawk). When obtaining the sources make sure you get the correct release codename for your installation.
+The alternative to this requires a modification to the usb-serial Linux kernel module. The quick and short of it is to remove [this line](https://github.com/torvalds/linux/blob/master/drivers/usb/serial/usb-serial.c#L712) and recompile the kernel:
+```
+.dtr_rts		= serial_port_dtr_rts,
+```
+In Ubuntu, there is some information on compiling the kernel here - https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel (if you get an error about putting source URIs in your sources list, see here - https://askubuntu.com/questions/496549/error-you-must-put-some-source-uris-in-your-sources-list, you also might need to install gawk). When obtaining the sources make sure you get the correct release codename for your installation.
 
