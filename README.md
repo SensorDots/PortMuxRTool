@@ -2,7 +2,7 @@
 
 A GUI application to aid with the control and operation of Port MuxR boards. Multiple boards can be controlled and chained together using this tool.
 
-This tool always polls the state of the board after each command, so the tool itself is stateless. The serial port is also opened and closed for each command run. This means you can unplug and plug boards in at any time, but it will mean your current state gets cleared if you unplug that board.
+This tool always polls the state of the board after each command, so the tool itself is stateless (which means you always see the actual switch configuation in the GUI). The serial port is also opened and closed for each command run. This means you can unplug and plug boards in at any time, but it will mean your current state gets cleared if you unplug that board.
 
 ## Installation
 
