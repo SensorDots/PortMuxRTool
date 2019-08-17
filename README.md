@@ -28,7 +28,7 @@ If you get an "Error getting board state" message, this is because the DTR pin i
 
 The alternative to this requires a modification to the usb-serial module. The quick and short of it is to remove [this line](https://github.com/torvalds/linux/blob/master/drivers/usb/serial/usb-serial.c#L712) and recompile that module.
 
-In Ubuntu, there is some information on doing this here - https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel (if you get an error about putting source URIs in your sources list, see here - https://askubuntu.com/questions/496549/error-you-must-put-some-source-uris-in-your-sources-list). When obtaining the sources, use the git method, as it downloads all sources correctly. Once you get to the "Modifying the configuration" stop, change to the sources directory then run:
+In Ubuntu, there is some information on doing this here - https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel (if you get an error about putting source URIs in your sources list, see here - https://askubuntu.com/questions/496549/error-you-must-put-some-source-uris-in-your-sources-list). When obtaining the sources make sure you get the correct release codename for your installation and also use the git method, as it downloads all sources correctly. Once you get to the "Modifying the configuration" stop, change to the sources directory then run:
 ```
 make menuconfig
 ```
