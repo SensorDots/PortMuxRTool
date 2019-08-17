@@ -41,7 +41,7 @@ Then save and exit. Then run (after editing the usb-serial.c file):
 ```
 make drivers/usb/serial/usbserial.ko
 ```
-Now just copy the usbserial.ko to:
+Now just copy the usbserial.ko to (after backing up the old one):
 ```
 /lib/modules/`uname -r`/kernel/drivers/usb/serial/
 ```
