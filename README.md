@@ -37,7 +37,7 @@ An alternative (and quicker) build method is to get the kernel sources (apt inst
 ```
 make menuconfig
 ```
-Then save and exit. Then run:
+Then save and exit. Then run (after editing the usb-serial.c file):
 ```
 make drivers/usb/serial/usbserial.ko
 ```
