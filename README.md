@@ -61,5 +61,5 @@ Now reconnect the PortMuxR and you should be ready to go.
 
 If you get an error such as " usbserial: version magic '5.0.18 SMP mod_unload ' should be '5.0.0-25-generic SMP mod_unload '" (from dmesg), edit the include/config/kernel.release file with the "should be" kernel version string, then make clean and recompile the module (provided they are very close kernel numbers this should be safe):
 ```
-5.0.0-25-generic
+5.0.0-25
 ```
