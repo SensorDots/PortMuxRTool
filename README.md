@@ -33,10 +33,10 @@ In Ubuntu, there is some information on doing this here - https://wiki.ubuntu.co
 make menuconfig
 ```
 Then save and exit. Then run:
-
+```
 make drivers/usb/serial/usbserial.ko
-
-Now just copy the usbserial.ko to 
+```
+Now just copy the usbserial.ko to:
 ```
 /lib/modules/`uname -r`/kernel/drivers/usb/serial/
 ```
