@@ -34,6 +34,6 @@ make menuconfig
 
 Then save and exit. Then run:
 
-make drivers
+make drivers/usb/class/cdc-acm.ko
 
 Now just copy the cdc-acm.ko to /lib/modules/`uname -r`/kernel/drivers/usb/class
