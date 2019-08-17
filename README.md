@@ -35,7 +35,7 @@ The alternative to this requires a modification to the usb-serial Linux kernel m
 In Ubuntu, there is some information on compiling the kernel here - https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel (if you get an error about putting source URIs in your sources list, see here - https://askubuntu.com/questions/496549/error-you-must-put-some-source-uris-in-your-sources-list, you also might need to install gawk and libudev-dev). When obtaining the sources make sure you get the correct release codename for your installation.
 
 ### Alternative Kernel Module Build
-An alternative (and quicker) build method is to get the (currently installed) kernel sources:
+An alternative (and much much quicker) build method is to get the (currently installed) kernel sources:
 ```
 sudo apt install linux-source-`uname -r | cut -d'-' -f1`
 ```
