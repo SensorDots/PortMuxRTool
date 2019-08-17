@@ -10,7 +10,7 @@ Requires .NET 4.0
 
 ## Mono Instructions
 
-The compiled exe (in the [Release](https://github.com/SensorDots/PortMuxRTool/tree/master/PortMuxRTool/bin/Release) directory) runs out of the box with mono (you might need to run as sudo or change ownership of the serial port):
+The compiled exe (in the [Release](https://github.com/SensorDots/PortMuxRTool/tree/master/PortMuxRTool/bin/Release) directory) runs out of the box with [mono](https://www.mono-project.com/) (you might need to run as sudo or change ownership of the serial port):
 ```
 mono PortMuxRTool.exe
 ```
