@@ -59,7 +59,8 @@ sudo rmmod usbserial
 ```
 Now reconnect the PortMuxR and you should be ready to go.
 
-If you get an error such as " usbserial: version magic '5.0.18 SMP mod_unload ' should be '5.0.0-25-generic SMP mod_unload '" (from dmesg), run the make command as follows:
+If you get an error such as " usbserial: version magic '5.0.18 SMP mod_unload ' should be '5.0.0-25-generic SMP mod_unload '" (from dmesg), run the make command as follows to match the expected value:
 ```
- make VERSION=5 PATCHLEVEL=0 SUBLEVEL=0 LOCALVERSION="-25" drivers/usb/serial/usbserial.ko
+ make VERSION=5 PATCHLEVEL=0 SUBLEVEL=0 LOCALVERSION="-25-generic" drivers/usb/serial/usbserial.ko
 ```
+This is safe(ish) to do if the verison number is close to the same value. Do not do this if they wildly disagree.
