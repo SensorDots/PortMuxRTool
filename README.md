@@ -41,6 +41,7 @@ Now just copy the usbserial.ko to /lib/modules/`uname -r`/kernel/drivers/usb/ser
 Then unplug the PortMuxR and run:
 
 sudo rmmod cp210x
+
 sudo rmmod usbserial
 
 Now reconnect the PortMuxR and you should be ready to go.
