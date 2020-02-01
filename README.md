@@ -28,7 +28,7 @@ When running under mono, it shows all serial ports (rather than just ones found 
 
 If you get an "Error getting board state" message, this is because the DTR pin is being toggled on port open, which resets the board. Some Linux distributions allow you to disable this with the "stty -F /dev/ttyUSB0 -hupcl -clocal" command. However, if this doesn't work, you can cut the trace between the DTR pins. You will need to resolder these pins together when you want to update the firmware (or hit the reset button during the Arduino programming process).
 
-The alternative to this requires a modification to the usb-serial Linux kernel module. The quick and short of it is to remove [this line in drivers/usb/serial/usb-serial.c](https://github.com/torvalds/linux/blob/master/drivers/usb/serial/usb-serial.c#L712) and recompile the kernel:
+The alternative to this requires a modification to the usb-serial Linux kernel module. The quick and short of it is to remove [this line in drivers/usb/serial/usb-serial.c](https://github.com/torvalds/linux/blob/fdb838efa31e1ed9a13ae6ad0b64e30fdbd00570/drivers/usb/serial/usb-serial.c#L709) and recompile the kernel:
 ```
 .dtr_rts		= serial_port_dtr_rts,
 ```
